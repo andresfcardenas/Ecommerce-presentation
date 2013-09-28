@@ -43,6 +43,9 @@
 						<small>Por <a href="http://andresfcardenas.herokuapp.com">Andrés F. Cárdenas</a> / <a href="http://twitter.com/AndresFCardenas">@AndresFCardenas</a></small>
 					</p>
 				</section>
+				<section>
+					<h2>¿Por qué?</h2>
+				</section>
 
 				<section data-transition="zoom" data-background="#007777">
 					<h2>¿Qué es Django?</h2>
@@ -77,8 +80,28 @@
 					<h2>Comercio electrónico en colombia</h2>
 				</section>
 
+				<section>
+					<h2>Virtualenvwrapper y pip</h2>
+				</section>
+
+				<section>
+					<h2>SQLite</h2>
+				</section>
+
+				<section>
+					<h2>Instalacion de Django</h2>
+				</section>
+
 				<section data-transition="zoom">
 					<h2>Puntos a tener en cuenta cuando se crea una plataforma Ecommerce</h2>
+				</section>
+
+				<section>
+					<h2>Configuracion de nuestro proyecto</h2>
+				</section>
+
+				<section>
+					<h2>Registro de usuarios a la plataforma</h2>
 				</section>
 
 				<section>
@@ -90,194 +113,140 @@
 				</section>
 
 				<section>
-					<h2>Registro de usuarios a la plataforma</h2>
+					<h2>Aplicacion base</h2>
 				</section>
 
 				<section>
-					<h2>Virtualenvwrapper y pip</h2>
-				</section>
-
-				<section>
-					<h2>PostgreSQL</h2>
-				</section>
-
-				<section>
-					<h2>Instalacion de Django</h2>
-				</section>
-
-				<section>
-					<h2>Configuracion de nuestro proyecto</h2>
-				</section>
-
-				<section>
-					<h2>Themes</h2>
+					<h2>Descomentar</h2>
 					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
+						En app/settings.py
+					</p>
+					<p>
+						<pre><code># 'userprofile',</code></pre>
 					</p>
 				</section>
 
 				<section>
-					<h2>Global State</h2>
+					<h2>Descomentar</h2>
 					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
+						En app/urls.py
 					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
 					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+						<pre><code>
+# url(
+#     r'^accounts/',
+#     include('userprofile.backends.default.urls')
+# ),
 
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+# url(
+#     r'^accounts/',
+#     include('userprofile.urls', namespace='userprofile')
+# ),
+						</code></pre>
 					</p>
 				</section>
 
 				<section>
-					<h2>Clever Quotes</h2>
+					<h2>Descomentar</h2>
 					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+						En app/templates/layout/base.html
 					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
 					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
+						<pre><code>
+{% if user.is_authenticated %}
+{# <a class="btn btn-mini" style="margin:10px 5px 5px 10px;" href="{% url 'userprofile:dashboard' %}">Dashboard</a> #}
+<a class="btn btn-mini" style="margin:10px 10px 5px 0px;" href="{% url 'auth_logout' %}">Cerrar sesión</a>
+{% else %}
+{# <a class="btn btn-mini" style="margin:10px 5px 5px 10px;" href="{% url 'userprofile:user_login' %}">Iniciar sesión</a> #}
+{# <a class="btn btn-mini" style="margin:10px 10px 5px 0px;" href="{% url 'registration_register' %}">Registrarse</a> #}
+{% endif %}
+						</code></pre>
 					</p>
 				</section>
 
 				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
+					<h2>Descomentar</h2>
 					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
+						En app/settings.py
+					</p>
+					<p>
+						<pre><code># 'store',</code></pre>
 					</p>
 				</section>
 
 				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
+					<h2>Descomentar</h2>
+					<p>
+						En app/urls.py
+					</p>
+					<p>
+						<pre><code>
+# url(
+#     r'^',
+#     include('store.urls', namespace='store')
+# ),
+						</code></pre>
+					</p>
 				</section>
 
 				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h2>Descomentar</h2>
+					<p>
+						En userprofile/templates/userprofile/dashboard.html
+					</p>
+					<p>
+						<pre><code>
+{# <p> #}
+    {# <a class="btn btn-general" href="{% url 'store:store-create' %}">Agregar tienda</a> #}
+{# </p> #}
+......
+{# <p> #}
+    {# <a href="{% url 'store:store-update' store.slug %}" class="btn btn-primary">Actualizar informacion de tienda</a> #}
+    {# <a href="{% url 'store:product-create' store.slug %}" class="btn btn-primary">Agregar nuevo producto</a> #}
+{# </p> #}
+						</code></pre>
+					</p>
+				</section>
+
+				<section>
+					<h2>Descomentar</h2>
+					<p>
+						En app/settings.py
+					</p>
+					<p>
+						<pre><code># 'cart',</code></pre>
+					</p>
+				</section>
+
+				<section>
+					<h2>Descomentar</h2>
+					<p>
+						En app/urls.py
+					</p>
+					<p>
+						<pre><code>
+# url(
+#     r'^cart/',
+#     include('cart.urls', namespace='cart')
+# ),
+						</code></pre>
+					</p>
+				</section>
+
+				<section>
+					<h2>Descomentar</h2>
+					<p>
+						En app/templates/layout/base.html
+					</p>
+					<p>
+						<pre><code>
+{# <a href="{% url 'cart:cart_detail' %}">Items (<span id="cart_count">0</span>) | Carrito: $<span id="cart_cash"></span></a> #}
+						</code></pre>
+					</p>
+				</section>
+
+				<section>
+					<h2></h2>
 				</section>
 
 			</div>
